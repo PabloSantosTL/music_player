@@ -18,9 +18,16 @@
   height: 1px;
   overflow: hidden;
 }
+html,
 body {
+  width: 100%;
+  height: 100%;
+
   margin: 0;
-  background-color: #ffeff5;
+
+  overflow: hidden;
+
+  background-color: #191919;
 }
 
 
@@ -31,14 +38,17 @@ PLAYER CONTAINER
 #player-container {
   position: absolute;
 
-  top: 50%;
+  top: 0;
   right: 0;
+  bottom: 0;
   left: 0;
 
-  width: 430px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
 
-  margin: -4px auto;
+  padding: 110px 16px 16px 16px;
+
+  box-sizing: border-box;
 }
 
 
@@ -47,37 +57,11 @@ BACKGROUND
 ========================= */
 
 #player-bg-artwork {
-  position: fixed;
-
-  top: -30px;
-  right: -30px;
-  bottom: -30px;
-  left: -30px;
-
-  background-image: url("https://raw.githubusercontent.com/himalayasingh/music-player-1/master/img/_1.jpg");
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  filter: blur(40px);
-
-  z-index: 1;
+  display: none;
 }
 
 #player-bg-layer {
-  position: fixed;
-
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  background-color: #fff;
-
-  opacity: 0.5;
-
-  z-index: 2;
+  display: none;
 }
 
 
@@ -87,7 +71,10 @@ PLAYER
 
 #player {
   position: relative;
-  height: 100%;
+
+  width: 100%;
+  height: calc(100% - 110px);
+
   z-index: 3;
 }
 
@@ -292,11 +279,12 @@ CONTENT
 #player-content {
   position: relative;
 
+  width: 100%;
   height: 100%;
 
-  background-color: #fff;
+  background-color: #ffffff;
 
-  box-shadow: 0 30px 80px #656565;
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
 
   border-radius: 15px;
 
@@ -478,7 +466,7 @@ CONTROLS
 
   float: left;
 
-  padding: 12px 0;
+  padding: 110px 20px 20px 20px;
 }
 
 .button {
@@ -517,4 +505,30 @@ CONTROLS
 
 .button:hover i {
   color: #fff;
+}
+@media (max-width: 600px) {
+
+  #player-track {
+    padding-left: 20px;
+  }
+
+  #album-art {
+    display: none;
+  }
+
+  #player-controls {
+    width: 100%;
+
+    margin: 0;
+  }
+
+  #album-name,
+  #track-name {
+    width: 100%;
+
+  #player-container {
+    padding: 110px 12px 12px 12px;
+  }
+  }
+
 }
