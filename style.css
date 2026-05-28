@@ -451,29 +451,35 @@ CONTROLS
 ========================= */
 
 #player-controls {
-  width: 250px;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: calc(100% - 141px);
   height: 100%;
 
   margin: 0 5px 0 141px;
-
-  float: right;
 
   overflow: hidden;
 }
 
 .control {
-  width: 33.333%;
+  display: flex;
 
-  float: left;
+  align-items: center;
+  justify-content: center;
 
-  padding: 110px 20px 20px 20px;
+  flex: 1;
+
+  padding: 12px 0;
 }
 
 .button {
-  width: 26px;
-  height: 26px;
+  width: clamp(20px, 4vw, 26px);
+  height: clamp(20px, 4vw, 26px);
 
-  padding: 25px;
+  padding: clamp(12px, 3vw, 25px);
 
   background-color: #fff;
 
@@ -508,6 +514,10 @@ CONTROLS
 }
 @media (max-width: 600px) {
 
+  #player-container {
+    padding: 110px 12px 12px 12px;
+  }
+
   #player-track {
     padding-left: 20px;
   }
@@ -522,13 +532,20 @@ CONTROLS
     margin: 0;
   }
 
+  .button {
+    width: 18px;
+    height: 18px;
+
+    padding: 12px;
+  }
+
+  .button i {
+    font-size: 20px;
+  }
+
   #album-name,
   #track-name {
     width: 100%;
-
-  #player-container {
-    padding: 110px 12px 12px 12px;
-  }
   }
 
 }
